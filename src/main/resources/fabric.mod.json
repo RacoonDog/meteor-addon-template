@@ -12,6 +12,7 @@
   },
   "icon": "assets/template/icon.png",
   "environment": "client",
+  "license": "CC0-1.0",
   "entrypoints": {
     "meteor": [
       "com.example.addon.AddonTemplate"
