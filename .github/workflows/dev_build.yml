@@ -1,23 +1,32 @@
-name: Publish Development Build
-on: push
+name: Build
+on: [push, pull_request]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-java@v2
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+      - name: Wrapper Validation
+        uses: gradle/wrapper-validation-action@v2
+      - name: Set up Java
+        uses: actions/setup-java@v4
         with:
           java-version: 17
-          distribution: adopt
+          distribution: 'temurin'
+      - name: Dependency Caching # Taken from github.com/FlorianMichael/BaseProject
+        uses: actions/cache@v4
+        with:
+            path: |
+                ~/.gradle/caches
+                ~/.gradle/wrapper
+            key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+            restore-keys: |
+                ${{ runner.os }}-gradle-
       - name: Build
         run: ./gradlew build
       - name: Release
-        uses: marvinpinto/action-automatic-releases@latest
+        uses: actions/upload-artifact@v4
         with:
-          repo_token: '${{ secrets.GITHUB_TOKEN }}'
-          automatic_release_tag: latest
-          prerelease: true
-          title: Dev Build
-          files: |
-            ./build/libs/*.jar
+          name: Artifacts
+          path: build/libs/
