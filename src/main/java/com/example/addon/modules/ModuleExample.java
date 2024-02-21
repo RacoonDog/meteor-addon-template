@@ -1,10 +1,10 @@
 package com.example.addon.modules;
 
-import com.example.addon.Addon;
+import com.example.addon.AddonTemplate;
 import meteordevelopment.meteorclient.systems.modules.Module;
 
 public class ModuleExample extends Module {
     public ModuleExample() {
-        super(Addon.CATEGORY, "example", "An example module in a custom category.");
+        super(AddonTemplate.CATEGORY, "example", "An example module in a custom category.");
     }
 }

@@ -3,18 +3,18 @@
   "id": "addon-template",
   "version": "${version}",
   "name": "Addon Template",
-  "description": "An addon template for the Meteor addons.",
+  "description": "An addon template for Meteor Client addons.",
   "authors": [
     "seasnail"
   ],
   "contact": {
-    "repo": "https://github.com/MeteorDevelopment/meteor-addon-template"
+    "repo": "https://github.com/RacoonDog/meteor-addon-template"
   },
   "icon": "assets/template/icon.png",
   "environment": "client",
   "entrypoints": {
     "meteor": [
-      "com.example.addon.Addon"
+      "com.example.addon.AddonTemplate"
     ]
   },
   "mixins": [
