@@ -41,6 +41,12 @@ tasks {
         }
     }
 
+    jar {
+        from("LICENSE") {
+            rename { "${it}_${project.base.archivesName.get()}" }
+        }
+    }
+
     withType<JavaCompile> {
         options.encoding = "UTF-8"
         options.release = 17
