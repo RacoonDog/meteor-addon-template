@@ -25,7 +25,7 @@ dependencies {
 
     // Meteor
     modImplementation("meteordevelopment:meteor-client:${project.property("meteor_version")}") {
-        isChanging = true
+        isChanging = true // this makes sure the meteor version is always the latest possible, set this to false if you want lower network usage
     }
 }
 
@@ -40,7 +40,9 @@ tasks {
         inputs.properties(projectProperties)
 
         filesMatching("fabric.mod.json") {
-            expand(projectProperties)
+            expand(projectProperties) {
+                escapeBackslash = true
+            }
         }
     }
 
@@ -58,5 +60,9 @@ tasks {
     java {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
+
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(17)
+        }
     }
 }
