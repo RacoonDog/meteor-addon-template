@@ -8,7 +8,7 @@
     "seasnail"
   ],
   "contact": {
-    "repo": "https://github.com/RacoonDog/meteor-addon-template"
+    "sources": "https://github.com/RacoonDog/meteor-addon-template"
   },
   "icon": "assets/template/icon.png",
   "environment": "client",
