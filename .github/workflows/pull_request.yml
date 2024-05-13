@@ -1,4 +1,4 @@
-name: Build Pull Request Artifact
+name: Build Pull Request Artifacts
 on: pull_request
 
 jobs:
@@ -23,7 +23,7 @@ jobs:
           key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
           restore-keys: |
             ${{ runner.os }}-gradle-
-      - name: Build
+      - name: Build with Gradle
         run: ./gradlew build -Pcommit=${{ github.sha }}
       - name: Release
         uses: actions/upload-artifact@v4

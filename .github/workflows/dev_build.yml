@@ -23,7 +23,7 @@ jobs:
           key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
           restore-keys: |
             ${{ runner.os }}-gradle-
-      - name: Build
+      - name: Build with Gradle
         run: ./gradlew build -Pcommit=${{ github.sha }}
       - name: Release
         uses: marvinpinto/action-automatic-releases@latest
