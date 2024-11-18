@@ -40,9 +40,7 @@ tasks {
         inputs.properties(projectProperties)
 
         filesMatching("fabric.mod.json") {
-            expand(projectProperties) {
-                escapeBackslash = true
-            }
+            expand(projectProperties)
         }
     }
 
