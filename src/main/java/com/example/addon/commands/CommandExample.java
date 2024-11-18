@@ -7,8 +7,6 @@ import net.minecraft.command.CommandSource;
 import net.minecraft.command.argument.EntityArgumentType;
 import net.minecraft.entity.player.PlayerEntity;
 
-import static com.mojang.brigadier.Command.SINGLE_SUCCESS;
-
 /**
  * The Meteor Client command API uses the <a href="https://github.com/Mojang/brigadier">same command system as Minecraft does</a>.
  */
