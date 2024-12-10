@@ -1,5 +1,5 @@
 plugins {
-    id("fabric-loom") version "1.8-SNAPSHOT"
+    id("fabric-loom") version "1.9-SNAPSHOT"
 }
 
 base {
@@ -38,6 +38,8 @@ tasks {
         )
 
         inputs.properties(projectProperties)
+
+        filteringCharset = "UTF-8"
 
         filesMatching("fabric.mod.json") {
             expand(projectProperties)
