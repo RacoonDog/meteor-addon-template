@@ -49,8 +49,9 @@ tasks {
     }
 
     jar {
+        val licenseSuffix = project.base.archivesName.get()
         from("LICENSE") {
-            rename { "${it}_${project.base.archivesName.get()}" }
+            rename { "${it}_${licenseSuffix}" }
         }
     }
 
