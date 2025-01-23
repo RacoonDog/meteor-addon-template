@@ -3,28 +3,30 @@ plugins {
 }
 
 base {
-    archivesName = project.property("archives_base_name").toString()
-    version = project.property("mod_version").toString()
-    group = project.property("maven_group").toString()
+    archivesName = properties["archives_base_name"] as String
+    version = properties["mod_version"] as String
+    group = properties["maven_group"] as String
 }
 
 repositories {
-    maven("https://maven.meteordev.org/releases") {
-        name = "Meteor Dev Releases"
+    maven {
+        name = "Meteor Releases Maven"
+        url = uri("https://maven.meteordev.org/releases")
     }
-    maven("https://maven.meteordev.org/snapshots") {
-        name = "Meteor Dev Snapshots"
+    maven {
+        name = "Meteor Snapshots Maven"
+        url = uri("https://maven.meteordev.org/snapshots")
     }
 }
 
 dependencies {
     // Fabric
-    minecraft("com.mojang:minecraft:${project.property("minecraft_version")}")
-    mappings("net.fabricmc:yarn:${project.property("yarn_mappings")}:v2")
-    modImplementation("net.fabricmc:fabric-loader:${project.property("loader_version")}")
+    minecraft("com.mojang:minecraft:${properties["minecraft_version"] as String}")
+    mappings("net.fabricmc:yarn:${properties["yarn_mappings"] as String}:v2")
+    modImplementation("net.fabricmc:fabric-loader:${properties["loader_version"] as String}")
 
     // Meteor
-    modImplementation("meteordevelopment:meteor-client:${project.property("minecraft_version")}-SNAPSHOT") {
+    modImplementation("meteordevelopment:meteor-client:${properties["minecraft_version"] as String}-SNAPSHOT") {
         isChanging = true // this makes sure the meteor version is always the latest possible, set this to false if you want lower network usage
     }
 }
