@@ -48,7 +48,7 @@ public class ModuleExample extends Module {
 
     /**
      * Example event handling method.
-     * Requires {@link AddonTemplate#getPackage()} to be setup correctly, will fail silently otherwise.
+     * Requires {@link AddonTemplate#getPackage()} to be setup correctly, otherwise the game will crash whenever the module is enabled.
      */
     @EventHandler
     private void onRender3d(Render3DEvent event) {
