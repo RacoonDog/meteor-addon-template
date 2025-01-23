@@ -24,7 +24,7 @@ dependencies {
     modImplementation("net.fabricmc:fabric-loader:${project.property("loader_version")}")
 
     // Meteor
-    modImplementation("meteordevelopment:meteor-client:${project.property("meteor_version")}") {
+    modImplementation("meteordevelopment:meteor-client:${project.property("minecraft_version")}-SNAPSHOT") {
         isChanging = true // this makes sure the meteor version is always the latest possible, set this to false if you want lower network usage
     }
 }
